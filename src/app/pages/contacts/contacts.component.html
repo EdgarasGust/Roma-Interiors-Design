@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-12 col-md-6">
+        <h3>Get in touch</h3>
+        <p class="pb-3">
+          If you have any questions or would like to chat about a potential
+          project, please get in touch.
+        </p>
+        <hr />
+        <p>
+          <a href="tel:+447470214062"><b> Phone: </b>+447470214062</a>
+        </p>
+        <hr />
+        <p>
+          <a href="mailto:roma@romainteriorsdesign.co.uk">
+            <b> Email me:</b> roma@romainteriorsdesign.co.uk</a
+          >
+        </p>
+        <hr />
+      </div>
+      <div class="col-12 col-md-5 form-padding">
+        <app-mini-form (formSent)="onFormSubmitted($event)"></app-mini-form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-email-sent
+  *ngIf="formSent == 'success'"
+  [username]="username"
+  (closeState)="close()"
+></app-email-sent>
+
+<app-error-message
+  *ngIf="formSent == 'error'"
+  [errorMsg]="errorMsg"
+  (closeState)="close()"
+></app-error-message>

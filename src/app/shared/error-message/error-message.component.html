@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="box">
+    <h3 class="pb-3">Sorry, there was an error please try again.</h3>
+    <p>Error: {{ errorMsg }}</p>
+    <button type="button" class="ripple customButton mt-4" (click)="close()">
+      Ok
+    </button>
+  </div>
+  <div class="backdrop1" (click)="close()"></div>
+  <span class="close1" (click)="close()">&times;</span>
+</div>

@@ -1,0 +1,653 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-12 col-md-4"><h1>QUESTIONNAIRE</h1></div>
+      <div class="col-12 col-md-7">
+        <p>
+          We've created this questionnaire to help you begin thinking about the
+          scope and expectations of your design project. It helps us get an idea
+          of what you're thinking before we start collaborating, so we can do
+          some research according to your personal preferences, and come
+          perfectly prepared with initial thoughts.
+        </p>
+        <h5>
+          Please fill in the online client questionnaire and We will be in
+          contact to discuss your project.
+        </h5>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <mat-vertical-stepper #stepper>
+        <mat-step
+          [stepControl]="firstFormGroup"
+          errorMessage="Please fill all required fields (marked with *)."
+        >
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>About you</ng-template>
+            <mat-label>First Name*</mat-label><br />
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="firstName" />
+            </mat-form-field>
+            <br />
+            <mat-label>Last Name</mat-label><br />
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="lastName" />
+            </mat-form-field>
+            <br />
+            <mat-label>Email*</mat-label> <br />
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="email" email />
+            </mat-form-field>
+            <br />
+            <mat-label>Phone number*</mat-label> <br />
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="tel" tel minlength="9" />
+            </mat-form-field>
+            <br />
+            <mat-label>Country*</mat-label> <br />
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="country" />
+            </mat-form-field>
+            <br />
+            <br />
+            <mat-label>How did you hear about us?</mat-label> <br />
+            <mat-form-field appearance="fill">
+              <mat-select formControlName="howDidYouHearAboutUs">
+                <mat-option
+                  value="{{ add }}"
+                  *ngFor="let add of advertisement"
+                  >{{ add }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <div>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 2 /////////////////  -->
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel
+              >Why do you want to redesign your space?</ng-template
+            >
+
+            <mat-radio-group
+              formControlName="whyRedesign"
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+            >
+              <mat-radio-button
+                class="example-radio-button"
+                *ngFor="let design of whyRedesignArray"
+                [value]="design"
+              >
+                {{ design }}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 3 //////////////////// -->
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel
+              >Which space(s) would you like me to design?</ng-template
+            >
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="whichSpace" multiple>
+                <mat-option
+                  *ngFor="let space of whichSpaceArray"
+                  [value]="space"
+                  >{{ space }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 4 //////////// -->
+        <mat-step [stepControl]="fourthFormGroup">
+          <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>How finished is your space?</ng-template>
+
+            <mat-radio-group
+              formControlName="howFinished"
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+            >
+              <mat-radio-button
+                class="example-radio-button"
+                *ngFor="let design of howFinishedArray"
+                [value]="design"
+              >
+                {{ design }}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 5///////////// -->
+
+        <mat-step [stepControl]="fifthFormGroup">
+          <form [formGroup]="fifthFormGroup">
+            <ng-template matStepLabel>Choose your style</ng-template>
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="designStyle" multiple>
+                <mat-option
+                  *ngFor="let style of designStyleArray"
+                  [value]="style.name"
+                  class="border"
+                >
+                  <div class="text-image">
+                    <img
+                      [src]="style.url"
+                      alt=""
+                      class="img-fluid"
+                      width="250"
+                      height="230"
+                    />
+                    <p class="m-0 vertical-text">
+                      {{ style.name }}
+                    </p>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 6 //////////////// -->
+
+        <mat-step [stepControl]="sixthFormGroup">
+          <form [formGroup]="sixthFormGroup">
+            <ng-template matStepLabel>What colours do you love?</ng-template>
+
+            <mat-label *ngIf="!sixthFormGroup.value.firstColour"
+              >Please pick the colour you like</mat-label
+            ><br />
+
+            <ngx-colors
+              ngx-colors-trigger
+              formControlName="firstColour"
+            ></ngx-colors>
+            <div
+              *ngIf="sixthFormGroup.value.firstColour"
+              [ngStyle]="{ background: sixthFormGroup.value.firstColour }"
+              class="d-flex justify-content-between align-items-center px-1 colorTextWidth"
+            >
+              <p class="m-0">The first color is selected</p>
+
+              <p class="close m-0" (click)="removeColour('six-one')">&times;</p>
+            </div>
+            <mat-label *ngIf="!sixthFormGroup.value.secondColour"
+              >Please pick the second colour you like</mat-label
+            ><br />
+
+            <ngx-colors
+              ngx-colors-trigger
+              formControlName="secondColour"
+            ></ngx-colors>
+            <div
+              *ngIf="sixthFormGroup.value.secondColour"
+              [ngStyle]="{ background: sixthFormGroup.value.secondColour }"
+              class="d-flex justify-content-between align-items-center px-1 colorTextWidth"
+            >
+              <p class="m-0">The second color is selected</p>
+
+              <p class="close m-0" (click)="removeColour('six-two')">&times;</p>
+            </div>
+            <div>
+              <p class="colorsLink mt-4">
+                If you can`t find the colours you like, click the link for more
+                colour options
+                <a
+                  href="https://www.dulux.co.uk/en/colour-details/filters/h_White#tabId=item0"
+                  target="blank"
+                  >LINK</a
+                >
+              </p>
+              <mat-label>Please add additional colours</mat-label><br />
+              <mat-form-field appearance="fill">
+                <textarea
+                  matInput
+                  formControlName="additionalColours"
+                  name="colours"
+                  id=""
+                  rows="3"
+                ></textarea>
+              </mat-form-field>
+              <br />
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 7 ///////////////  -->
+        <mat-step [stepControl]="seventhFormGroup">
+          <form [formGroup]="seventhFormGroup">
+            <ng-template matStepLabel>What colours do you dislike?</ng-template>
+
+            <mat-label *ngIf="!seventhFormGroup.value.firstColour"
+              >Please pick the colour you like</mat-label
+            ><br />
+
+            <ngx-colors
+              ngx-colors-trigger
+              formControlName="firstColour"
+            ></ngx-colors>
+            <div
+              *ngIf="seventhFormGroup.value.firstColour"
+              [ngStyle]="{ background: seventhFormGroup.value.firstColour }"
+              class="d-flex justify-content-between align-items-center px-1 colorTextWidth"
+            >
+              <p class="m-0">The first color is selected</p>
+
+              <p class="close m-0" (click)="removeColour('seven-one')">
+                &times;
+              </p>
+            </div>
+            <mat-label *ngIf="!seventhFormGroup.value.secondColour"
+              >Please pick the second colour you like</mat-label
+            ><br />
+
+            <ngx-colors
+              ngx-colors-trigger
+              formControlName="secondColour"
+            ></ngx-colors>
+            <div
+              *ngIf="seventhFormGroup.value.secondColour"
+              [ngStyle]="{ background: seventhFormGroup.value.secondColour }"
+              class="d-flex justify-content-between align-items-center px-1 colorTextWidth"
+            >
+              <p class="m-0">The second color is selected</p>
+
+              <p class="close m-0" (click)="removeColour('seven-two')">
+                &times;
+              </p>
+            </div>
+            <div>
+              <p class="colorsLink mt-4">
+                If you can`t find the colours you dislike, click the link for
+                more colour options
+                <a
+                  href="https://www.dulux.co.uk/en/colour-details/filters/h_White#tabId=item0"
+                  target="blank"
+                  >LINK</a
+                >
+              </p>
+              <mat-label>Please add additional colours</mat-label><br />
+              <mat-form-field appearance="fill">
+                <textarea
+                  matInput
+                  formControlName="additionalColours"
+                  name="colours"
+                  id=""
+                  rows="3"
+                ></textarea>
+              </mat-form-field>
+              <br />
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 8 ///////////// -->
+        <mat-step [stepControl]="eightFormGroup">
+          <form [formGroup]="eightFormGroup">
+            <ng-template matStepLabel
+              >Which colour walls do you like?</ng-template
+            >
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="wallColours" multiple>
+                <mat-option
+                  *ngFor="let colour of wallColourArray"
+                  [value]="colour.name"
+                  class="border"
+                >
+                  <div class="text-image">
+                    <img
+                      [src]="colour.url"
+                      alt=""
+                      class="img-fluid"
+                      width="250"
+                      height="230"
+                    />
+                    <p class="m-0 vertical-text">
+                      {{ colour.name }}
+                    </p>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 9 /////////// -->
+
+        <mat-step [stepControl]="ninthFormGroup">
+          <form [formGroup]="ninthFormGroup">
+            <ng-template matStepLabel
+              >Which colour furniture's do you like?</ng-template
+            >
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="furnitureColours" multiple>
+                <mat-option
+                  *ngFor="let furnitureColour of furnitureColourArray"
+                  [value]="furnitureColour.name"
+                  class="border"
+                >
+                  <div class="text-image">
+                    <img
+                      [src]="furnitureColour.url"
+                      alt=""
+                      class="img-fluid"
+                      width="250"
+                      height="230"
+                    />
+                    <p class="m-0 vertical-text">
+                      {{ furnitureColour.name }}
+                    </p>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 10 /////////////// -->
+
+        <mat-step [stepControl]="tenthFormGroup">
+          <form [formGroup]="tenthFormGroup">
+            <ng-template matStepLabel
+              >Would you be willing to paint or use wallpaper for the
+              walls?</ng-template
+            >
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="wallpaperOrPaint" multiple>
+                <mat-option
+                  *ngFor="let wallpaperOrPaint of wallpaperOrPaintArray"
+                  [value]="wallpaperOrPaint.name"
+                  class="border"
+                >
+                  <div class="text-image">
+                    <img
+                      [src]="wallpaperOrPaint.url"
+                      alt=""
+                      class="img-fluid"
+                      width="250"
+                      height="230"
+                    />
+                    <p class="m-0 vertical-text">
+                      {{ wallpaperOrPaint.name }}
+                    </p>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 11 //////////////// -->
+
+        <mat-step [stepControl]="eleventhFormGroup">
+          <form [formGroup]="eleventhFormGroup">
+            <ng-template matStepLabel
+              >What type of finishes are your favorite?</ng-template
+            >
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="finishes" multiple>
+                <mat-option
+                  *ngFor="let finish of finishesArray"
+                  [value]="finish.name"
+                  class="border"
+                >
+                  <div class="text-image">
+                    <img
+                      [src]="finish.url"
+                      alt=""
+                      class="img-fluid"
+                      width="250"
+                      height="230"
+                    />
+                    <p class="m-0 vertical-text">
+                      {{ finish.name }}
+                    </p>
+                  </div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 12 //////////// -->
+        <mat-step [stepControl]="twelfthFormGroup">
+          <form [formGroup]="twelfthFormGroup">
+            <ng-template matStepLabel>Pinterest Board</ng-template>
+            <mat-label
+              >Understanding your style helps us <br />
+              select pieces you'll love. If you have a <br />
+              Pinterest board kindly include the link below. </mat-label
+            ><br />
+            <mat-form-field appearance="fill">
+              <input
+                matInput
+                formControlName="pinterest"
+                placeholder="Enter link to Pinterest board here"
+              />
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <!-- Step 13 //////////////// -->
+        <mat-step [stepControl]="thirteenthFormGroup">
+          <form [formGroup]="thirteenthFormGroup">
+            <ng-template matStepLabel>Wish list for the room items</ng-template>
+            <mat-label
+              >What is on your wish list for the room items needed?</mat-label
+            >
+            <br />
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select formControlName="roomWishList" multiple>
+                <mat-option
+                  *ngFor="let wish of roomWishListArray"
+                  [value]="wish"
+                  >{{ wish }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <mat-label
+              >What must remain in the room? Please list items here:</mat-label
+            >
+            <br />
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="remainInRoom" />
+            </mat-form-field>
+            <br />
+            <mat-label
+              >What are the overall measurements of the room? <br />
+              <a
+                class="a-class"
+                routerLink="/home/measurements-guidance"
+                target="blank"
+                >Measurements guidance
+              </a>
+            </mat-label>
+            <br />
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="overallRoomMeasurements" />
+            </mat-form-field>
+            <br />
+
+            <mat-card class="result-card">
+              <mat-card-content>
+                <mat-label
+                  >What is your desired budget for each room?</mat-label
+                >
+                <div class="label-container">
+                  <label id="example-name-label" class="example-name-label"
+                    >Value</label
+                  >
+                  <label class="value-label"
+                    >£ {{ thirteenthFormGroup.value.roomBudget }}</label
+                  >
+                </div>
+                <mat-slider
+                  class="m-1"
+                  [max]="max"
+                  [min]="min"
+                  [discrete]="thumbLabel"
+                >
+                  <input matInput matSliderThumb formControlName="roomBudget" />
+                </mat-slider>
+              </mat-card-content>
+            </mat-card>
+
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 14 ///////////////  -->
+        <mat-step
+          [stepControl]="fourteenthFormGroup"
+          errorMessage="This section is required"
+        >
+          <form [formGroup]="fourteenthFormGroup">
+            <ng-template matStepLabel>Terms & Conditions*</ng-template>
+            <mat-label>
+              By checking Yes box, you are agreeing to our terms of service.
+              <br />
+
+              <a
+                href="../../../assets/policy/Privacy policy.pdf"
+                target="_blank"
+                >Privacy Policy</a
+              >
+            </mat-label>
+
+            <br />
+
+            <mat-radio-group
+              aria-label="Select an option"
+              formControlName="termsAndConditions"
+            >
+              <mat-radio-button value="yes">Yes</mat-radio-button>
+              <br />
+              <mat-radio-button>No</mat-radio-button>
+            </mat-radio-group>
+
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- Step 15 ///////////// -->
+
+        <mat-step [stepControl]="fifteenthFormGroup">
+          <form [formGroup]="fifteenthFormGroup">
+            <ng-template matStepLabel>Permission</ng-template>
+            <mat-label>
+              Do we have your permission to feature your room design on my blog?
+            </mat-label>
+
+            <br />
+
+            <mat-radio-group
+              aria-label="Select an option"
+              formControlName="permission"
+            >
+              <mat-radio-button value="yes">Yes</mat-radio-button>
+              <br />
+              <mat-radio-button value="no">No</mat-radio-button>
+              <br />
+              <mat-radio-button value="It depends">It depends</mat-radio-button>
+            </mat-radio-group>
+
+            <div>
+              <button mat-button matStepperPrevious type="button">Back</button>
+              <button mat-button matStepperNext type="button">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Submit</ng-template>
+          <mat-label *ngIf="formValid"> You are now done. </mat-label>
+          <mat-label class="error-text-style" *ngIf="!formValid">
+            Please fill all required fields (marked with *)
+          </mat-label>
+
+          <div class="mt-3">
+            <button mat-button matStepperPrevious type="button">Back</button>
+            <button
+              mat-button
+              [disabled]="!formValid"
+              (click)="onSubmit()"
+              (click)="stepper.reset()"
+            >
+              Submit
+            </button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+    </div>
+  </div>
+</div>
+
+<app-spinner *ngIf="isLoading"></app-spinner>
+
+<app-email-sent
+  *ngIf="submitted"
+  [username]="username"
+  (closeState)="close()"
+></app-email-sent>
+
+<app-error-message
+  *ngIf="errorMsg"
+  [errorMsg]="errorMsg"
+  (closeState)="close()"
+></app-error-message>

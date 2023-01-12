@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="backdrop-image">
+    <swiper
+      #swiperRef
+      [spaceBetween]="30"
+      [virtual]="true"
+      [centeredSlides]="true"
+      [keyboard]="true"
+      [navigation]="true"
+      class="mySwiper"
+    >
+      <ng-template swiperSlide *ngFor="let image of images; index as i">
+        <img
+          [src]="image"
+          alt=""
+          class="swiper-images1"
+          *ngIf="
+            image !==
+            '../../../assets/gallery/versace-bathroom/versace-video.webm'
+          "
+        />
+
+        <video
+          controls
+          class="video"
+          *ngIf="
+            image ==
+            '../../../assets/gallery/versace-bathroom/versace-video.webm'
+          "
+        >
+          <source [src]="image" type="video/webm" class="swiper-images1" />
+        </video>
+      </ng-template>
+    </swiper>
+  </div>
+  <div class="backdrop" (click)="close()"></div>
+  <span class="close" (click)="close()">&times;</span>
+</div>

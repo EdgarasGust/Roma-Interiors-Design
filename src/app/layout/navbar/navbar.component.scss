@@ -1,0 +1,149 @@
+@use "../../../styles/base/global";
+
+* {
+  box-sizing: border-box;
+}
+nav {
+  background: global.$navbarColor;
+}
+
+a {
+  cursor: pointer;
+}
+.link-active {
+  font-weight: 600;
+}
+
+.nav-link {
+  margin-right: 1.4em;
+  text-decoration: none;
+  display: block;
+  position: relative;
+}
+.nav-link:focus,
+.nav-link:hover {
+  color: grey;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.arrow {
+  margin-left: 5px;
+  margin-bottom: 3px;
+  border: solid black;
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: 0.3s ease-in-out;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.menu-button {
+  display: none;
+  margin-right: 2em;
+  overflow: hidden;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: global.$burgerMenuColor;
+}
+
+.menu-button.active .bar:nth-child(2) {
+  transform: translateX(30px);
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+}
+.menu-button .bar:nth-child(2) {
+  transform: translateX(0px);
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+}
+.menu-button.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  transition: 0.3s ease-in-out;
+}
+.menu-button .bar:nth-child(1) {
+  transform: translateY(0px) rotate(0deg);
+  transition: 0.3s ease-in-out;
+}
+.menu-button.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  transition: 0.3s ease-in-out;
+}
+.menu-button .bar:nth-child(3) {
+  transform: translateY(0px) rotate(0deg);
+  transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 576px) {
+  .menu-button {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  .position {
+    position: absolute;
+    z-index: 49;
+  }
+
+  .responsive-flex {
+    padding: 0;
+  }
+  //last menu list item
+  .padding {
+    padding-bottom: 2em;
+  }
+}
+
+@media screen and (min-width: 577px) {
+  nav {
+    padding: 1.5em;
+  }
+
+  .responsive-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 700px;
+  }
+
+  .link-hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: grey;
+    opacity: 0;
+    transition: opacity 300ms, width 500ms;
+  }
+
+  .link-hover:focus::after,
+  .link-hover:hover::after {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 625px) {
+  .nav-link {
+    font-size: 0.8rem;
+  }
+}

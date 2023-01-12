@@ -1,0 +1,206 @@
+<section class="container">
+  <h2 class="mb-5">Are you curious about your personal style?</h2>
+  <div class="row">
+    <div class="col-6 col-md-3">
+      <div class="card">
+        <div class="card-image-body" (click)="modernMin = !modernMin">
+          <img
+            src="../../../../assets/form-images/styles/modern-minimal.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="modernMin">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Modern & Minimal</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image-body" (click)="modernMid = !modernMid">
+          <img
+            src="../../../../assets/form-images/styles/modern-mid-century.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="modernMid">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Modern Mid-Century</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card">
+        <div class="card-image-body" (click)="industrial = !industrial">
+          <img
+            src="../../../../assets/form-images/styles/industrial.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="industrial">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Industrial</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image-body" (click)="rustic = !rustic">
+          <img
+            src="../../../../assets/form-images/styles/rustic-bohemian.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="rustic">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Rustic Bohemian</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card">
+        <div class="card-image-body" (click)="french = !french">
+          <img
+            src="../../../../assets/form-images/styles/french-country.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="french">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">French country</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image-body" (click)="scandinavian = !scandinavian">
+          <img
+            src="../../../../assets/form-images/styles/scandinavian.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="scandinavian">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Scandinavian</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card">
+        <div class="card-image-body" (click)="nautical = !nautical">
+          <img
+            src="../../../../assets/form-images/styles/nautic-navy.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="nautical">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Nautical or Navy</p>
+        </div>
+      </div>
+
+      <!-- //////////////////////// -->
+      <div class="card">
+        <div class="card-image-body" (click)="farmhouse = !farmhouse">
+          <img
+            src="../../../../assets/form-images/styles/farmhouse-chick.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div *ngIf="farmhouse">
+            <div class="checkOverlay">
+              <div class="circle-position">
+                <div class="circle">
+                  <div class="checkmark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Farmhouse Chic</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="ripple customButton mt-3" (click)="onStylePicked()">
+    Next
+  </button>
+</section>
+
+<div class="form" *ngIf="formVisible">
+  <app-mini-form
+    [chosenStyle]="chosenStyles"
+    (formSent)="onFormSent($event)"
+  ></app-mini-form>
+</div>
+<div *ngIf="formVisible" class="backdrop" (click)="close()"></div>
+
+<div *ngIf="formSent">
+  <app-email-sent [username]="username" (closeState)="close()"></app-email-sent>
+</div>

@@ -1,0 +1,62 @@
+<div class="container-fluid px-0">
+  <div class="p-0 mb-1">
+    <h2 class="text-center pb-4">Projects Gallery</h2>
+    <app-swiper></app-swiper>
+  </div>
+
+  <div class="container">
+    <div *ngFor="let project of projects">
+      <div class="text-center py-5">
+        <h2 class="pb-2">{{ project.name }}</h2>
+      </div>
+      <div class="row">
+        <div
+          class="col-6 col-sm-6 col-md-4 col-div"
+          *ngFor="let image of project.images; let i = index"
+        >
+          <div class="image" *ngIf="project.imageLoaded ? true : i <= 5">
+            <a
+              routerLink="/gallery/project-images"
+              [queryParams]="{ index: i, project: project.project }"
+            >
+              <img
+                class=""
+                [src]="image"
+                alt=""
+                width="360"
+                height="500"
+                *ngIf="
+                  image !==
+                  '../../../assets/gallery/versace-bathroom/versace-video.webm'
+                "
+              />
+
+              <video
+                width="360"
+                height="500"
+                controls
+                class="video"
+                *ngIf="
+                  image ==
+                  '../../../assets/gallery/versace-bathroom/versace-video.webm'
+                "
+              >
+                <source [src]="image" type="video/webm" />
+              </video>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          mat-raised-button
+          class="mt-4"
+          (click)="project.imageLoaded = !project.imageLoaded"
+          *ngIf="project.images.length > 6"
+        >
+          {{ project.imageLoaded ? "Hide images" : "Load more images" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="box">
+    <h3 class="pb-3">Thank you {{ username }} for getting in touch!</h3>
+    <p>
+      We appreciate you contacting us. We will get back in touch with you soon!
+      Have a great day!
+    </p>
+    <button type="button" class="ripple customButton mt-4" (click)="close()">
+      Great
+    </button>
+  </div>
+  <div class="backdrop1" (click)="close()"></div>
+  <span class="close1" (click)="close()">&times;</span>
+</div>

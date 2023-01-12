@@ -1,0 +1,29 @@
+.section-margin {
+  margin-top: 6em;
+}
+
+.img-hover-zoom {
+  overflow: hidden;
+  // padding: 5px 0 5px 0;
+  padding: 2px 2px 2px 2px;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 569px) {
+  .last-image {
+    max-height: 40vh;
+    object-fit: cover;
+  }
+}

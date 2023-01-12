@@ -1,0 +1,213 @@
+<section class="container-fluid background">
+  <div class="container" id="how-it-works">
+    <div class="row display">
+      <div class="col-md-6 pt-5">
+        <h3 class="pb-2">How it works</h3>
+        <p>
+          We offer a simple three-step process, where you will get exactly what
+          you have always wanted. We will provide you with an easy and
+          affordable design service. And everything will be done at the perfect
+          pace for you without ever having to worry about what it will cost.
+          Everything is included. It allows you to budget ahead with complete
+          clarity and peace of mind.
+        </p>
+        <p class="text-size">
+          It is the most popular service we have ever offered.
+        </p>
+        <button class="ripple customButton mt-3" routerLink="/contact">
+          Contact Us
+        </button>
+      </div>
+      <div class="col-md-6 pt-5">
+        <ngb-accordion #acc="ngbAccordion">
+          <ngb-panel title="Step 1">
+            <ng-template ngbPanelContent>
+              When you choose the package, you are redirected to a comprehensive
+              questionnaire to complete that will help you clarify your design
+              needs and what inspires your style and preferences. As part of the
+              process we will also gather: The floor plans and measurements of
+              the rooms to be designed Photos from each corner of every room
+              Photos of items that you would particularly wish to keep and their
+              measurements (if not replacing all furniture) Here is the simple
+              guide: how to measure your space
+              <a class="a-colour" routerLink="/home/measurements-guidance"
+                >Measurements guidance</a
+              >
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel title="Step 2">
+            <ng-template ngbPanelContent>
+              Once we have received all of this information, we will confirm the
+              timescales and send you an email with payment details. After
+              payment, our professional design team will start the creative
+              process taking into account your wishes and preferences given in
+              the questionnaire.
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel title="Step 3">
+            <ng-template ngbPanelContent>
+              We send the completed conceptual interior design to you including
+              a detailed shopping list with links, and useful tips on how to
+              bring your new design alive in your home. Where you have chosen
+              Standard or Exclusive packages, you may request a revision at this
+              point.
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section 2 /////// -->
+<div class="container container-padding">
+  <div class="text-center pb-5">
+    <h2 class="pb-3">What will I get</h2>
+    <p>Services include some or all of the following</p>
+  </div>
+  <div class="layout-images">
+    <div class="col-md-6 direction">
+      <div class="img-div">
+        <img
+          src="../../../../assets/layouts/concept-board.webp"
+          alt=""
+          class="img-fluid"
+          width="340"
+          height="300"
+        />
+        <div class="show">
+          <div class="text">
+            <h4>
+              CONCEPT MOOD <br />
+              BOARD
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="img-div">
+        <img
+          src="../../../../assets/layouts/floor-plan.webp"
+          alt=""
+          class="img-fluid"
+          width="340"
+          height="300"
+        />
+        <div class="show">
+          <div class="text">
+            <h4>
+              FLOOR PLAN & <br />
+              PLACEMENT LIST
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 direction">
+      <div class="img-div">
+        <img
+          src="../../../../assets/layouts/shoping-list.webp"
+          alt=""
+          class="img-fluid"
+          width="340"
+          height="300"
+        />
+        <div class="show">
+          <div class="text">
+            <h4>SHOPPING LIST</h4>
+          </div>
+        </div>
+      </div>
+      <div class="img-div">
+        <img
+          src="../../../../assets/layouts/electric-plan.webp"
+          alt=""
+          class="img-fluid"
+          width="340"
+          height="300"
+        />
+        <div class="show">
+          <div class="text">
+            <h4>ELECTRICAL PLAN</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="ripple customButton mt-5" routerLink="/home/guidance">
+      See Guidance
+    </button>
+  </div>
+</div>
+<!-- Section 3 //////// -->
+
+<div class="container container-padding" id="choose-package">
+  <div class="text-center pb-5">
+    <h2 class="pb-3">Choose your room package</h2>
+    <p>
+      The following prices relate to charges for <b> e-Design</b> only. <br />
+      Please contact us prior to placing your order if you have more than 3
+      rooms or an open plan area encompassing several areas.
+    </p>
+  </div>
+  <div class="row text-center">
+    <div class="col-md box">
+      <h3>EXPRESS</h3>
+      <p>
+        Ideal if you're looking to refresh current home interior to make it
+        feels like new
+      </p>
+      <h3>£200</h3>
+      <p>price per room</p>
+
+      <div>
+        <button
+          class="ripple customButton mt-3"
+          (click)="onPlanSelected('express')"
+        >
+          Select
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md box">
+      <h3>STANDARD</h3>
+      <p>
+        Best to revamp a blank space or add the final touches that will bring
+        your interior to life
+      </p>
+
+      <h3>£300</h3>
+      <p>price per room</p>
+      <div>
+        <button
+          class="ripple customButton mt-3"
+          (click)="onPlanSelected('standard')"
+        >
+          Select
+        </button>
+      </div>
+    </div>
+    <div class="col-md box">
+      <h3>EXCLUSIVE</h3>
+      <p>
+        Perfect for full room design from scratch with extra interior services
+      </p>
+      <h3>£600</h3>
+      <p>price per room</p>
+      <div>
+        <button
+          class="ripple customButton mt-3"
+          (click)="onPlanSelected('exclusive')"
+        >
+          Select
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-room-package-details
+  *ngIf="planSelected"
+  [service]="service"
+  (backdropState)="planSelected = false"
+></app-room-package-details>

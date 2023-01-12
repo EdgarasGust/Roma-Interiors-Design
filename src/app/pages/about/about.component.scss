@@ -1,0 +1,20 @@
+.color {
+  color: green;
+  font-weight: 600;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+.about-me-text {
+  font-weight: 700;
+}
+@media screen and (max-width: 576px) {
+  .container {
+    padding-top: 4em;
+  }
+  .about-me-text {
+    padding-top: 1em;
+  }
+  .image-margin {
+    margin-bottom: 2em;
+  }
+}

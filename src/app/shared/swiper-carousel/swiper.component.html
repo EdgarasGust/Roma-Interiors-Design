@@ -1,0 +1,44 @@
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="10"
+  [loopFillGroupWithBlank]="true"
+  [navigation]="true"
+  [virtual]="true"
+  [autoplay]="{
+    delay: 2500,
+    disableOnInteraction: false
+  }"
+  [breakpoints]="{
+    '640': {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    '768': {
+      slidesPerView: 2,
+      spaceBetween: 10
+    },
+    '1024': {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    '1224': {
+      slidesPerView: 3,
+      spaceBetween: 10
+    },
+    '1400': {
+      slidesPerView: 4,
+      spaceBetween: 10
+    }
+  }"
+  class="mySwiper"
+>
+  <ng-container *ngFor="let image of carouselImages; index as i">
+    <ng-template swiperSlide>
+      <a
+        routerLink="/gallery/project-images"
+        [queryParams]="{ index: i, project: 'carousel' }"
+        ><img [src]="image" alt="" class="swiper-slide-image" />
+      </a>
+    </ng-template>
+  </ng-container>
+</swiper>

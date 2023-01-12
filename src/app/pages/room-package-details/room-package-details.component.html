@@ -1,0 +1,109 @@
+<div class="content" *ngIf="service === 'express' && !planChosen">
+  <span class="close" (click)="close()">&times;</span>
+  <div class="text-center mb-3">
+    <h4 class="mb-0"><b> EXPRESS </b></h4>
+    <h4><b> Interior Design Service </b></h4>
+  </div>
+  <ul>
+    <li>Turnaround time 3 days.</li>
+    <li>1 inspiration concept board to capture your style.</li>
+    <li>Customized floor plan.</li>
+  </ul>
+
+  <p class="d-flex justify-content-end">Price: &nbsp;<b> £200</b></p>
+
+  <hr />
+  <div class="text-center">
+    <button
+      type="button"
+      class="ripple customButton"
+      (click)="onPlanSelected()"
+    >
+      Get Started
+    </button>
+  </div>
+</div>
+<div class="content" *ngIf="service === 'standard' && !planChosen">
+  <span class="close" (click)="close()">&times;</span>
+  <div class="text-center mb-3">
+    <h4 class="mb-0"><b> STANDARD </b></h4>
+    <h4><b> Interior Design Service </b></h4>
+  </div>
+  <ul>
+    <li>Turnaround time one week.</li>
+    <li>1 inspiration concept board to capture your style.</li>
+    <li>3 recommendations on paint colours.</li>
+    <li>3 recommendations for each piece of furniture.</li>
+    <li>3 decorative accessories with at least 2 options for each.</li>
+    <li>One round of design revision to reach the final design.</li>
+    <li>
+      Personalized shopping list with website links so you can purchase all your
+      items.
+    </li>
+    <li>A project coordinator with one-week post design support.</li>
+  </ul>
+  <p class="d-flex justify-content-end">Price: &nbsp;<b> £300</b></p>
+  <hr />
+  <div class="text-center">
+    <button
+      type="button"
+      class="ripple customButton"
+      (click)="onPlanSelected()"
+    >
+      Get Started
+    </button>
+  </div>
+</div>
+<div class="content" *ngIf="service === 'exclusive' && !planChosen">
+  <span class="close" (click)="close()">&times;</span>
+  <div class="text-center mb-3">
+    <h4 class="mb-0"><b> EXCLUSIVE </b></h4>
+    <h4><b> Interior Design Service </b></h4>
+  </div>
+  <ul>
+    <li>Turnaround time two weeks.</li>
+    <li>2 inspiration concept board to capture your style.</li>
+    <li>3 recommendations on paint, flooring & fabric .</li>
+    <li>3 recommendations for each piece of furniture.</li>
+    <li>5 decorative accessories with at least 2 options for each.</li>
+    <li>Window treatment selections.</li>
+    <li>Furniture placement plan.</li>
+    <li>Lighting plan and tips.</li>
+    <li>Built-in elevations.</li>
+    <li>Final style board with curated product recommendations.</li>
+    <li>3 rounds of design revisions to reach the final design.</li>
+    <li>
+      Personalized shopping list with website links so you can purchase all your
+      items.
+    </li>
+    <li>A project coordinator with two-week post design support.</li>
+  </ul>
+  <p class="d-flex justify-content-end">Price: &nbsp;<b> £600</b></p>
+  <hr />
+  <div class="text-center">
+    <button
+      type="button"
+      class="ripple customButton"
+      (click)="onPlanSelected()"
+    >
+      Get Started
+    </button>
+  </div>
+</div>
+<div class="form" *ngIf="planChosen">
+  <app-mini-form
+    [service]="service"
+    (formSent)="onFormSent($event)"
+  ></app-mini-form>
+</div>
+<div *ngIf="!formSent" class="backdrop" (click)="close()"></div>
+
+<div *ngIf="formSent == 'success'">
+  <app-email-sent [username]="username" (closeState)="close()"></app-email-sent>
+</div>
+
+<app-error-message
+  *ngIf="formSent == 'error'"
+  [errorMsg]="errorMsg"
+  (closeState)="close()"
+></app-error-message>

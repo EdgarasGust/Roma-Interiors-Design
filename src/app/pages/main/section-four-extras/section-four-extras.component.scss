@@ -1,0 +1,25 @@
+.container-fluid {
+  background-color: #f5f5f5;
+  padding-top: 6em;
+  padding-bottom: 4em;
+}
+
+.box {
+  background-color: white;
+  margin-bottom: 0.8em;
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+h3 {
+  color: #fac090;
+}
+
+@media screen and (min-width: 576px) {
+  .box {
+    max-width: 23%;
+  }
+  .row {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,21 @@
+label {
+  padding: 10px 0 5px 0;
+}
+
+.text-size {
+  margin-top: 1em;
+  font-size: 11px;
+  a {
+    color: black;
+  }
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+@media screen and (min-width: 769px) {
+  .form-padding {
+    padding-top: 0;
+  }
+}

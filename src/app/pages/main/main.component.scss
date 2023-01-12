@@ -1,0 +1,28 @@
+.background {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: url("../../../assets/main-page-images/main-background.webp");
+  background-color: #cccccc;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+img {
+  width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .background {
+    min-height: 65vh;
+  }
+}
+@media screen and (max-width: 576px) {
+  .background {
+    margin-top: 3em;
+  }
+}

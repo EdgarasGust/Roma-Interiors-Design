@@ -1,0 +1,151 @@
+<nav class="navbar-expand-sm container-fluid position">
+  <div class="container responsive-flex">
+    <div class="d-flex justify-content-between align-items-center py-1">
+      <a class="navbar-brand justify-content-start" routerLink="/">
+        <img
+          class="d-inline-block align-top"
+          src="../../../assets/Logo/Roma-logo.png"
+          alt=""
+          width="120"
+          height="55"
+        />
+      </a>
+      <div>
+        <button
+          class="menu-button"
+          [ngClass]="{ active: isMenuCollapsed === false }"
+          type="button"
+          title="burger-menu"
+          (click)="isMenuCollapsed = !isMenuCollapsed"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex text-center mx-auto">
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li
+            class="nav-item"
+            #myDrop="ngbDropdown"
+            ngbDropdown
+            *ngIf="showContainer"
+          >
+            <a
+              class="nav-link"
+              routerLink="/"
+              routerLinkActive="link-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              role="button"
+              ngbDropdownToggle
+            >
+              <p class="link-hover mb-0">
+                Home
+                <i
+                  [ngClass]="myDrop.isOpen() ? 'arrow up' : 'arrow down'"
+                ></i></p
+            ></a>
+            <div ngbDropdownMenu>
+              <div class="d-inline-block">
+                <a (click)="onScrollToLarge('what-we-do')" ngbDropdownItem
+                  >What we do</a
+                >
+                <a (click)="onScrollToLarge('how-it-works')" ngbDropdownItem
+                  >How it works</a
+                >
+                <a (click)="onScrollToLarge('choose-package')" ngbDropdownItem
+                  >Choose Package</a
+                >
+                <a (click)="onScrollToLarge('package-extras')" ngbDropdownItem
+                  >Package Extras</a
+                >
+              </div>
+            </div>
+          </li>
+          <!--////////////// Second container -->
+          <li class="nav-item" *ngIf="!showContainer">
+            <a
+              class="nav-link"
+              routerLink="/"
+              routerLinkActive="link-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              role="button"
+              (click)="collapse.toggle()"
+              [attr.aria-expanded]="isCollapsed"
+              aria-controls="collapseExample"
+            >
+              <p class="link-hover mb-0">
+                Home
+                <i [ngClass]="!isCollapsed ? 'arrow up' : 'arrow down'"></i>
+              </p>
+            </a>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+              <div class="navbar-nav d-flex flex-column">
+                <a
+                  class="nav-link link-hover"
+                  (click)="onScrollToSmall('what-we-do')"
+                  >What we do</a
+                >
+                <a
+                  class="nav-link link-hover"
+                  (click)="onScrollToSmall('how-it-works')"
+                  >How it works</a
+                >
+                <a
+                  class="nav-link link-hover"
+                  (click)="onScrollToSmall('choose-package')"
+                  >Choose Package</a
+                >
+                <a
+                  class="nav-link link-hover"
+                  (click)="onScrollToSmall('package-extras')"
+                  >Package Extras</a
+                >
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link link-hover"
+              routerLink="/about"
+              routerLinkActive="link-active"
+              (click)="isMenuCollapsed = true"
+              >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link link-hover"
+              routerLink="/gallery"
+              routerLinkActive="link-active"
+              (click)="isMenuCollapsed = true"
+              >Portfolio</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link link-hover"
+              routerLink="/questionnaire"
+              routerLinkActive="link-active"
+              (click)="isMenuCollapsed = true"
+              >Questionnaire</a
+            >
+          </li>
+          <li class="nav-item padding">
+            <a
+              class="nav-link link-hover"
+              routerLink="/contact"
+              routerLinkActive="link-active"
+              (click)="isMenuCollapsed = true"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

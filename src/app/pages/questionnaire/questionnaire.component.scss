@@ -1,0 +1,123 @@
+
+mat-label {
+  color: grey;
+}
+
+mat-form-field {
+  width: 100%;
+}
+mat-label,
+mat-option,
+::placeholder {
+  font-size: 14px;
+}
+mat-slider {
+  width: 300px;
+}
+///////////////
+
+.mat-mdc-slider {
+  // max-width: 300px;
+  width: 100%;
+}
+.result-card {
+  max-width: 50%;
+  margin: 1em 0;
+}
+
+.label-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 10px 0;
+  width: 98%;
+}
+
+//////////////
+
+.a-class {
+  text-decoration: none;
+}
+
+.error-text-style {
+  color: red;
+}
+
+.border {
+  border-bottom: 1px solid gray;
+}
+
+.text-image {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 5px;
+}
+
+.vertical-text {
+  color: grey;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  inline-size: 150px;
+  overflow-wrap: break-word;
+  text-align: center;
+  font-size: 12px;
+}
+
+.colorsLink {
+  font-size: 12px;
+}
+
+.colorTextWidth {
+  max-width: 100%;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.container-fluid {
+  padding-top: 6em;
+  padding-bottom: 16em;
+}
+
+.close {
+  color: rgb(255, 255, 255, 0.4);
+  font-size: 35px;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+  mat-form-field {
+    width: 50%;
+  }
+  .colorTextWidth {
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 769px) {
+  .result-card {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 390px) {
+  mat-option {
+    padding-left: 2px;
+  }
+  ::ng-deep {
+    .mat-pseudo-checkbox {
+      margin-right: 2px !important;
+    }
+  }
+  ::ng-deep {
+    .mat-vertical-content {
+      padding: 0 !important;
+    }
+  }
+}
